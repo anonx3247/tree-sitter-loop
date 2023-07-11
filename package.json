@@ -1,0 +1,19 @@
+{
+  "name": "tree-sitter-loop",
+  "version": "1.0.0",
+  "description": "A tree-sitter grammar for Loop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neosapien3247/tree-sitter-loop.git"
+  },
+  "author": "Neosapien",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/neosapien3247/tree-sitter-loop/issues"
+  },
+  "homepage": "https://github.com/neosapien3247/tree-sitter-loop#readme"
+}
