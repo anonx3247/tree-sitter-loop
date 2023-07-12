@@ -11,7 +11,7 @@ struct Person {
   job: str? 
 }
 
-bob = Person(name: "Bob", age: 22) 
+bob = Person(name: "Bob", age: 22)
 
 fn greet(p: Person) -> none { 
   print(
@@ -32,7 +32,7 @@ greet(job: "Cashier",
       age: 30) 
 
 enum Sex { 
-  Male,
+  Male
   Female
 }
 

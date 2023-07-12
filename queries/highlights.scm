@@ -31,13 +31,14 @@
 
 ; attributes
 (variable_assignment variables: (identifier) @attribute)
+(variable_assignment (identifier) @attribute)
 (struct_definition member: (identifier) @attribute)
 (param_list (identifier) @variable.parameter)
 
 ; variables
-;(variable_assignment (identifier) @constant)
-;(object) @constant
-;(identifier) @constant
+(variable_assignment (identifier) @variable)
+(object) @variable
+(identifier) @variable
 (module_prefix) @module
 
 ; types
@@ -47,3 +48,24 @@
 (bool) @constant
 (string) @string
 (number) @constant
+
+; operators
+[
+  "+"
+  "-"
+  "*"
+  "/"
+  "^"
+  "%"
+  "="
+  "+="
+  "-="
+  "*="
+  "/="
+  "^="
+  "->"
+  "=>"
+  "."
+  "!"
+  "?"
+] @operator
