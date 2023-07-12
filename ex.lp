@@ -2,11 +2,10 @@ mod example
 
 import csv
 
-
-x := 3 
+x := 3  -- testing comments
 mut y := 5 
 
-phrase := "Hello, World!" 
+--- phrase := "Hello, World!" ---
 
 println(phrase) 
 

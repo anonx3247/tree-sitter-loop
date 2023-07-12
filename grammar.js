@@ -33,9 +33,11 @@ module.exports = grammar({
       )
     ),
     
-    comment: $ => choice($._multi_line_comment, $._single_line_comment),
-    _multi_line_comment: $ => seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/"),
+    comment: $ => $._single_line_comment, //choice($._multi_line_comment, $._single_line_comment),
+    //_multi_line_comment: $ => seq("---", $._multi_line_comment_body,  "---"),
     _single_line_comment: $ => /--.*/,
+
+    //_multi_line_comment_body: $ => repeat1(choice(/[^-]/, /-[^-]/)),
 
     import: $ => seq("import", /[a-zA-Z0-9}{:]+/),
     module: $ => seq("mod", /[a-zA-Z0-9]+/),

@@ -31,34 +31,8 @@
       }
     },
     "comment": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "_multi_line_comment"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_single_line_comment"
-        }
-      ]
-    },
-    "_multi_line_comment": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "/*"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[^*]*\\*+([^/*][^*]*\\*+)*"
-        },
-        {
-          "type": "STRING",
-          "value": "/"
-        }
-      ]
+      "type": "SYMBOL",
+      "name": "_single_line_comment"
     },
     "_single_line_comment": {
       "type": "PATTERN",
