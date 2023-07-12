@@ -69,6 +69,7 @@ module.exports = grammar({
         $.switch_statement,
         $.conditional_statement,
         $.variable_assignment,
+        $.variable_mutation,
         $.function_call_statement,
         $.function_definition,
         $.struct_definition,
@@ -109,8 +110,16 @@ module.exports = grammar({
     variable_assignment: $ => prec.left(seq(
       optional("mut"),
       field("variables", repeat(seq($._variable, ","))),
-      $._variable,
-      field("types", optional(seq(":", repeat(seq($.type, ",")), $.type))),
+      field("variables", $._variable),
+      field("types", seq(":", repeat(seq($.type, ",")), optional($.type))),
+      "=",
+      repeat(seq($._expression, ",")),
+      $._expression
+    )),
+
+    variable_mutation: $ => prec.left(seq(
+      field("variables", repeat(seq($._variable, ","))),
+      field("variables", $._variable),
       choice("=", "+=", "-=", "*=", "/=", "^="),
       repeat(seq($._expression, ",")),
       $._expression
