@@ -937,6 +937,11 @@
     }
   },
   {
+    "type": "import",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "list",
     "named": true,
     "fields": {},
@@ -1056,6 +1061,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "module",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "module_prefix",
@@ -1567,11 +1577,19 @@
           "named": true
         },
         {
+          "type": "import",
+          "named": true
+        },
+        {
           "type": "instruction",
           "named": true
         },
         {
           "type": "loop",
+          "named": true
+        },
+        {
+          "type": "module",
           "named": true
         },
         {
@@ -2725,6 +2743,10 @@
     "named": false
   },
   {
+    "type": "import",
+    "named": false
+  },
+  {
     "type": "in",
     "named": false
   },
@@ -2742,6 +2764,10 @@
   },
   {
     "type": "loop",
+    "named": false
+  },
+  {
+    "type": "mod",
     "named": false
   },
   {

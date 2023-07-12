@@ -20,6 +20,8 @@
   "struct"
   "enum"
   "fn"
+  "import"
+  "mod"
 ] @keyword
 
 (instruction) @keyword

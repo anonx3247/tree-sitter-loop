@@ -27,13 +27,18 @@ module.exports = grammar({
       choice(
         $.comment,
         $._statement,
-        $.block
+        $.block,
+        $.import,
+        $.module
       )
     ),
     
     comment: $ => choice($._multi_line_comment, $._single_line_comment),
     _multi_line_comment: $ => seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/"),
     _single_line_comment: $ => /--.*/,
+
+    import: $ => seq("import", /[a-zA-Z0-9}{:]+/),
+    module: $ => seq("mod", /[a-zA-Z0-9]+/),
     
 
     module_prefix: $ => prec.right(repeat1(

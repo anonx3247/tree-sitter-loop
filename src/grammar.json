@@ -18,6 +18,14 @@
           {
             "type": "SYMBOL",
             "name": "block"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "import"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "module"
           }
         ]
       }
@@ -55,6 +63,32 @@
     "_single_line_comment": {
       "type": "PATTERN",
       "value": "--.*"
+    },
+    "import": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "import"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[a-zA-Z0-9}{:]+"
+        }
+      ]
+    },
+    "module": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "mod"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[a-zA-Z0-9]+"
+        }
+      ]
     },
     "module_prefix": {
       "type": "PREC_RIGHT",
