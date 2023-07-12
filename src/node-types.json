@@ -47,6 +47,10 @@
           "named": true
         },
         {
+          "type": "instruction",
+          "named": true
+        },
+        {
           "type": "loop",
           "named": true
         },
@@ -109,6 +113,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "bool",
+          "named": true
+        },
         {
           "type": "conditional_expression",
           "named": true
@@ -184,6 +192,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "bool",
+          "named": true
+        },
         {
           "type": "comparison",
           "named": true
@@ -295,6 +307,10 @@
             "named": false
           },
           {
+            "type": "bool",
+            "named": true
+          },
+          {
             "type": "conditional_expression",
             "named": true
           },
@@ -377,6 +393,10 @@
             "named": false
           },
           {
+            "type": "bool",
+            "named": true
+          },
+          {
             "type": "conditional_expression",
             "named": true
           },
@@ -444,6 +464,20 @@
     "type": "enum_definition",
     "named": true,
     "fields": {
+      "member": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "type",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": false,
         "required": true,
@@ -454,16 +488,6 @@
           }
         ]
       }
-    },
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "type",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -489,6 +513,10 @@
           {
             "type": "]",
             "named": false
+          },
+          {
+            "type": "bool",
+            "named": true
           },
           {
             "type": "conditional_expression",
@@ -571,6 +599,10 @@
           {
             "type": "]",
             "named": false
+          },
+          {
+            "type": "bool",
+            "named": true
           },
           {
             "type": "conditional_expression",
@@ -698,6 +730,10 @@
       "required": false,
       "types": [
         {
+          "type": "bool",
+          "named": true
+        },
+        {
           "type": "catch_block",
           "named": true
         },
@@ -787,6 +823,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "bool",
+          "named": true
+        },
         {
           "type": "catch_block",
           "named": true
@@ -924,6 +964,10 @@
       "required": true,
       "types": [
         {
+          "type": "bool",
+          "named": true
+        },
+        {
           "type": "comparison",
           "named": true
         },
@@ -1010,6 +1054,21 @@
     }
   },
   {
+    "type": "module_prefix",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "modulo",
     "named": true,
     "fields": {
@@ -1032,6 +1091,10 @@
           {
             "type": "]",
             "named": false
+          },
+          {
+            "type": "bool",
+            "named": true
           },
           {
             "type": "conditional_expression",
@@ -1116,6 +1179,10 @@
             "named": false
           },
           {
+            "type": "bool",
+            "named": true
+          },
+          {
             "type": "conditional_expression",
             "named": true
           },
@@ -1188,6 +1255,10 @@
       "required": true,
       "types": [
         {
+          "type": "bool",
+          "named": true
+        },
+        {
           "type": "conditional_expression",
           "named": true
         },
@@ -1209,6 +1280,10 @@
         },
         {
           "type": "list_comprehension",
+          "named": true
+        },
+        {
+          "type": "module_prefix",
           "named": true
         },
         {
@@ -1298,6 +1373,10 @@
             "named": false
           },
           {
+            "type": "bool",
+            "named": true
+          },
+          {
             "type": "conditional_expression",
             "named": true
           },
@@ -1378,6 +1457,10 @@
           {
             "type": "]",
             "named": false
+          },
+          {
+            "type": "bool",
+            "named": true
           },
           {
             "type": "conditional_expression",
@@ -1480,6 +1563,10 @@
           "named": true
         },
         {
+          "type": "instruction",
+          "named": true
+        },
+        {
           "type": "loop",
           "named": true
         },
@@ -1557,6 +1644,10 @@
       "required": true,
       "types": [
         {
+          "type": "bool",
+          "named": true
+        },
+        {
           "type": "conditional_expression",
           "named": true
         },
@@ -1623,6 +1714,28 @@
     "type": "struct_definition",
     "named": true,
     "fields": {
+      "member": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "type",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": false,
         "required": true,
@@ -1633,20 +1746,6 @@
           }
         ]
       }
-    },
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "type",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -1672,6 +1771,10 @@
           {
             "type": "]",
             "named": false
+          },
+          {
+            "type": "bool",
+            "named": true
           },
           {
             "type": "conditional_expression",
@@ -1754,6 +1857,10 @@
           {
             "type": "]",
             "named": false
+          },
+          {
+            "type": "bool",
+            "named": true
           },
           {
             "type": "conditional_expression",
@@ -1844,6 +1951,10 @@
             "named": false
           },
           {
+            "type": "bool",
+            "named": true
+          },
+          {
             "type": "conditional_expression",
             "named": true
           },
@@ -1926,6 +2037,10 @@
             "named": false
           },
           {
+            "type": "bool",
+            "named": true
+          },
+          {
             "type": "conditional_expression",
             "named": true
           },
@@ -1999,6 +2114,10 @@
       "types": [
         {
           "type": "alias",
+          "named": true
+        },
+        {
+          "type": "bool",
           "named": true
         },
         {
@@ -2109,6 +2228,10 @@
           "named": true
         },
         {
+          "type": "instruction",
+          "named": true
+        },
+        {
           "type": "loop",
           "named": true
         },
@@ -2144,11 +2267,11 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": false,
       "types": [
         {
-          "type": "identifier",
+          "type": "module_prefix",
           "named": true
         }
       ]
@@ -2214,6 +2337,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "bool",
+          "named": true
+        },
         {
           "type": "conditional_expression",
           "named": true
@@ -2321,10 +2448,6 @@
   },
   {
     "type": "!=",
-    "named": false
-  },
-  {
-    "type": "#debug",
     "named": false
   },
   {
@@ -2456,6 +2579,10 @@
     "named": false
   },
   {
+    "type": "bool",
+    "named": true
+  },
+  {
     "type": "catch",
     "named": false
   },
@@ -2498,6 +2625,10 @@
   {
     "type": "in",
     "named": false
+  },
+  {
+    "type": "instruction",
+    "named": true
   },
   {
     "type": "interface",

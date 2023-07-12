@@ -36,9 +36,9 @@ module.exports = grammar({
     _single_line_comment: $ => /--.*/,
     
 
-    _module_prefix: $ => repeat1(
+    module_prefix: $ => prec.right(repeat1(
       seq($.identifier, "::")
-    ),
+    )),
     
     expression: $ => $._expression,
     _expression: $ => choice(
@@ -56,13 +56,14 @@ module.exports = grammar({
       $.switch_expression,
       $.range,
       $.string,
+      $.bool,
       $.function_call_expression,
       $.type,
       $.list_comprehension
     ),
 
     _statement: $ => seq(
-      optional("#debug"),
+      optional($.instruction),
       choice(
         $._loop,
         $.switch_statement,
@@ -253,12 +254,13 @@ module.exports = grammar({
       "catch", choice($.object, $.alias), $.block
     ),
 
-    keyword: $ => /(mut|pointer|and|or|not|ret|catch|as|in|is|#debug)/,
+    keyword: $ => /(mut|pointer|and|or|not|ret|catch|as|in|is|break|continue|debug|fn|ret|while|if|else|elif|switch|for|loop)/,
+    instruction: $ => /(break|continue|debug)/,
 
     type: $ => seq(choice($._base_type,$._user_type), optional(choice("?", "!"))),
 
     _base_type: $ => /(\[\])?(u8|u16|u32|u64|i32|i64|f32|f64|bool|str|none|err)/,
-    _user_type: $ => seq(optional($._module_prefix), /(\[\])?[A-Z][a-z]*/),
+    _user_type: $ => seq(optional($.module_prefix), /(\[\])?[A-Z][a-z]*/),
 
     _param: $ => seq($.identifier, ":", $.type),
 
@@ -289,7 +291,7 @@ module.exports = grammar({
     ),
 
     object: $ => seq(
-      optional($._module_prefix),
+      optional($.module_prefix),
       $.identifier,
       prec.right("object", repeat(seq(".", $.identifier))),
       optional($._braketed_expression)
@@ -329,8 +331,8 @@ module.exports = grammar({
       "struct",
       field("name", $.type),
       "{",
-      repeat(seq($._param, optional(","))),
-      $._param,
+      repeat(field("member", seq($._param, optional(",")))),
+      field("member", $._param),
       "}"
     ),
 
@@ -338,8 +340,8 @@ module.exports = grammar({
       "enum",
       field("name", $.type),
       "{",
-      repeat(seq($.type, optional(","))),
-      $.type,
+      repeat(field("member", seq($.type, optional(",")))),
+      field("member", $.type),
       "}"
     ),
 
@@ -415,5 +417,6 @@ module.exports = grammar({
     number: _ => /\d+(\.\d+)?/,
     identifier: _ => /([a-z][0-9a-zA-Z_]*)/,
     string: _ => /(\"[^"]*\"|\'[^']*\')/,
+    bool: _ => /(true|false|none|err)/,
   }
 });

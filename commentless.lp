@@ -97,15 +97,15 @@ fn calc_n_primes(n: u64) -> []u64 {
   mut primes: u64 = [2] 
 
   mut i = 2
-  #debug t = time.now()
+  debug t = time.now()
   while len(primes) < n {
     i += 1
     if is_prime(i) {
       primes += [i]
     }
   }
-  #debug t2 = time.now()
-  #debug println("For {n}, took {t2-t1}")
+  debug t2 = time.now()
+  debug println("For {n}, took {t2-t1}")
 }
 
 
